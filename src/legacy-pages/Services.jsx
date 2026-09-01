@@ -34,7 +34,7 @@ const serviceData = [
   {
     id: 1,
     title: 'Heathrow Airport Transfers',
-    description: 'Door-to-door airport rides with fixed fares and dependable punctual pickups.',
+    description: 'Door-to-door airport rides with dependable punctual pickups.',
     category: 'Airport Transfers',
     slug: 'heathrow-airport-transfers',
     image: demoImages.airport,
@@ -358,7 +358,7 @@ function Services() {
               { title: 'A Fleet You Can Trust', description: 'Clean, maintained Mercedes, BMW and Vito vehicles.' },
               { title: 'Available Around the Clock', description: 'Abbey Cars operates 24 hours a day, 7 days a week.' },
               { title: 'Friendly, Familiar Faces', description: 'Polite, professional drivers who treat every passenger with care.' },
-              { title: 'Honest, Upfront Pricing', description: 'Clear pricing with no unnecessary surprises or hidden charges.' },
+              { title: 'Honest, Upfront Pricing', description: 'Clear pricing with no unnecessary surprises.' },
             ].map((item) => (
               <div key={item.title} className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
                 <h3 className="text-lg font-bold text-slate-900">{item.title}</h3>

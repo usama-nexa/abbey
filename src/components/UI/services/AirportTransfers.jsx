@@ -16,7 +16,7 @@ const airportServices = [
   {
     id: 'luton-stansted',
     title: 'Luton & Stansted Transfers',
-    description: 'Book dependable taxi transfers to Luton and Stansted Airports with fixed prices, spacious vehicles, and door-to-door service.',
+    description: 'Book dependable taxi transfers to Luton and Stansted Airports with spacious vehicles and door-to-door service.',
     route: '/services/luton-stansted-airport-transfers',
   },
 ]
@@ -29,7 +29,7 @@ function AirportTransfers() {
         <div className="mb-12 max-w-2xl">
           <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">Airport Transfers</h2>
           <p className="mt-4 text-lg text-slate-600">
-            Travel to and from the UK's major airports with fixed fares, flight monitoring, and on-time pickups for a hassle-free journey.
+            Travel to and from the UK's major airports with flight monitoring and on-time pickups for a hassle-free journey.
           </p>
         </div>
 

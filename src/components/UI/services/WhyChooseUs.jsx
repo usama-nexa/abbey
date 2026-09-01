@@ -7,7 +7,7 @@ function WhyChooseUs() {
     { icon: FaCarSide, title: 'A Fleet You Can Trust', description: 'Premium Mercedes, BMW and Vito vehicles are cleaned, maintained and checked regularly.' },
     { icon: FaClock, title: 'Available Around the Clock', description: 'Early flight, late shift or night out, Abbey Cars operates 24 hours a day, 7 days a week.' },
     { icon: FaUsers, title: 'Friendly, Familiar Faces', description: 'Our drivers are friendly, polite and professional, treating every passenger with care and respect.' },
-    { icon: FaLock, title: 'Simple Booking', description: 'Clear, straightforward From your pickup details to your journey time, we keep the booking process clear and straightforward.' },
+    { icon: FaLock, title: 'Simple Booking', description: 'From your pickup details to your journey time, we keep the booking process clear and straightforward.' },
   ]
 
   return (

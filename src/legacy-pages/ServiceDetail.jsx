@@ -1,15 +1,18 @@
 ﻿import { useState } from 'react'
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
-import { FaArrowRight, FaCheck, FaClock, FaMapMarkerAlt, FaPlaneArrival, FaShieldAlt, FaSuitcase, FaUserCheck } from 'react-icons/fa'
+import { FaArrowRight, FaCheck, FaClock, FaCreditCard, FaMapMarkerAlt, FaPlaneArrival, FaShieldAlt, FaSuitcase, FaUserCheck } from 'react-icons/fa'
 import usePageTitle from '../hooks/usePageTitle'
 import Hero_our_fleets from '../components/UI/Hero_our_fleets'
+import Testimonials from '../components/UI/services/Testimonials'
+import { DownloadApp } from '../components/UI/HomeContentSections'
 
 const serviceContent = {
   'heathrow-airport-transfers': {
     title: 'Heathrow Airport Transfers',
-    heading: 'Heathrow Airport Transfers from Reading, Wokingham and Surrounding Areas',
+    heading: 'Heathrow Airport Transfer',
     description: 'Skip the stress of getting to Heathrow. We offer comfortable private transfers from Reading and the surrounding areas straight to your terminal.',
     details: [
+      'Professional and punctual service',
       'Flight monitoring and delay tracking',
       'Meet & greet service available',
       'Premium vehicle options',
@@ -46,25 +49,25 @@ const serviceContent = {
           { heading: 'Bracknell & Crowthorne', places: 'Bracknell, Binfield, Warfield, Birch Hill, Harmans Water and Crowthorne.' },
           { heading: 'Henley & Surrounding Areas', places: 'Henley-on-Thames, Shiplake, Nettlebed, Remenham, Pangbourne, Goring-on-Thames, Streatley, Whitchurch-on-Thames and Upper Basildon.' },
         ],
-        closing: "Not sure if we cover your exact address? Just send us your pick-up location and destination and we'll be happy to confirm.",
+        closing: 'Not sure if we cover your exact address? Just send us your pick-up location and destination and we’ll be happy to confirm.',
       },
       {
-        heading: 'Clear Pricing, Instant Quotes',
+        heading: 'Our Pricing',
         paragraphs: [
           'Our prices depend on your pick-up location, destination, and time of travel.',
-          "You'll always see the full price before you confirm your booking.",
-          'Get in touch with your pick-up and drop-off details and we will provide a quote.',
+          'You’ll always see the full price before you confirm your booking.',
+          'Contact us with your journey details and we will be happy to provide a quote.',
         ],
       },
       {
-        heading: "Book Anytime \u2013 We're Available 24/7",
+        heading: 'Book Anytime – We’re Available 24/7',
         items: [
           'Available 24 hours a day, 7 days a week',
           'Including weekends, bank holidays, and early morning/late night flights',
           'Easy online booking with instant confirmation',
           'You can also book by phone',
         ],
-        closing: "Book in advance or make a last-minute reservation — we're ready when you are.",
+        closing: 'Book in advance or make a last-minute reservation — we’re ready when you are.',
       },
       {
         heading: 'Choose the Perfect Vehicle for Your Journey',
@@ -98,24 +101,24 @@ const serviceContent = {
           'Spacious vehicles for families and groups',
           'Assistance with multiple suitcases and pushchairs',
         ],
-        closing: "Travelling with a lot of bags or young children? Just let us know and we'll arrange the right vehicle.",
+        closing: 'Travelling with a lot of bags or young children? Just let us know and we’ll arrange the right vehicle.',
       },
     ],
     faqs: [
       { question: 'Do you provide transfers from Reading to Heathrow Airport?', answer: 'Yes, we offer private transfers from Reading and all surrounding areas straight to Heathrow Airport (LHR). Our drivers pick you up from your door and take you directly to your terminal.' },
       { question: 'Can you collect me from Heathrow and take me to Reading?', answer: 'Yes. We provide Meet & Greet service at Heathrow. Your driver will wait inside the terminal with a name board and take you to any address in Reading or the surrounding areas.' },
-      { question: 'Which areas do you cover?', answer: "We cover Reading and nearby areas including Caversham, Tilehurst, Earley, Woodley, Wokingham, Newbury, Bracknell, Henley-on-Thames, and many more. If you're not sure, just send us your address and we'll confirm." },
-      { question: 'How does pricing work?', answer: 'Our prices depend on your pick-up location, destination, and time of travel. Contact us with your journey details and we will be happy to provide a quote.' },
+      { question: 'Which areas do you cover?', answer: 'We cover Reading and nearby areas including Caversham, Tilehurst, Earley, Woodley, Wokingham, Newbury, Bracknell, Henley-on-Thames, and many more. If you’re not sure, just send us your address and we’ll confirm.' },
+      { question: 'How does pricing work?', answer: 'Our prices depend on your pick-up location, destination, and time of travel. You’ll always see the full price before confirming your booking. Contact us with your journey details and we will be happy to provide a quote.' },
       { question: 'Are you available 24/7?', answer: 'Yes, we operate 24 hours a day, 7 days a week, including weekends, bank holidays, and early morning or late-night flights.' },
       { question: 'Do you offer child seats and vehicles for groups?', answer: 'Yes. Free child seats and booster seats are available on request. We also have spacious 6-seater and 8-seater vehicles for families and groups with extra luggage.' },
     ],
   },
- 
-   'gatwick-airport-transfers': {
-    title: 'Heathrow Airport Transfers',
-    heading: 'Heathrow Airport Transfers from Reading, Wokingham and Surrounding Areas',
-    description: 'Skip the stress of getting to Heathrow. We offer comfortable private transfers from Reading and the surrounding areas straight to your terminal.',
+  'gatwick-airport-transfers': {
+    title: 'Gatwick Airport Transfers',
+    heading: 'Gatwick Airport Transfer',
+    description: 'Need a stress-free ride to Gatwick? Book private taxis with meet & greet from Reading, Wokingham, Bracknell and Newbury. 24/7 reliable transfers.',
     details: [
+      'Professional and punctual service',
       'Flight monitoring and delay tracking',
       'Meet & greet service available',
       'Premium vehicle options',
@@ -129,21 +132,49 @@ const serviceContent = {
       luggage: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1200&q=85',
     },
     intro: [
-      'Your driver arrives on time, helps with your luggage, and takes you directly to the airport — no queues, no delays, and no last-minute worries. Ideal for early morning departures and late-night flights.',
+      'Whether you are flying out of Gatwick or arriving after a long trip, our private transfer service gives you a calm, reliable journey from start to finish. We handle the road so you can travel without the stress of changing trains, waiting for a taxi rank, or rushing across the airport.',
+      'We cover both North and South Terminals and provide private transfers for individuals, families, and groups from Reading, Wokingham, Bracknell, Newbury, Henley-on-Thames and the surrounding areas.',
     ],
     sections: [
       {
-        heading: 'Arrive Relaxed: Heathrow to Reading Private Transfers',
+        heading: 'Arrive Relaxed: Gatwick to Reading Private Transfers',
         paragraphs: [
-          'Arriving at Heathrow? Your driver will meet you inside the terminal (Meet & Greet available) with a name board, assist with your bags, and take you directly to your home, hotel, or any address in Reading and the surrounding areas.',
-          'We track your flight in real time, so even if your flight is delayed, your driver will still be there waiting for you.',
+          'Travelling to or from London Gatwick Airport doesn’t need to be stressful. Our private transfer service collects you from your door in Reading, Wokingham, Bracknell, Newbury, Henley-on-Thames and nearby areas, then drives you directly to Gatwick Airport or picks you up on arrival and takes you home in comfort.',
+          'We track your flight in real time, so if your departure or arrival time changes, we adjust the plan accordingly and keep your journey smooth from start to finish.',
+        ],
+      },
+      {
+        heading: 'Why Choose a Private Gatwick Airport Transfer?',
+        paragraphs: [
+          'Meet & Greet – Your driver waits inside the arrivals hall with a name board, helps with luggage, and walks you to the vehicle.',
+          'Flight tracking – We monitor your flight in real time and adjust the pickup time if it is delayed or early.',
+          'Free waiting time – Up to 60 minutes of complimentary waiting after landing for international flights.',
+          '24/7 availability – Early morning departures and late-night arrivals are handled without extra fees.',
+          'Suitable for every need – Extra space for luggage, child seats on request, and larger vehicles for groups.',
+        ],
+        bulletList: [
+          'Meet & Greet',
+          'Flight tracking',
+          'Free waiting time',
+          '24/7 availability',
+          'Suitable for every need',
+        ],
+      },
+      {
+        heading: 'Our Popular Routes',
+        paragraphs: [
+          'Many of our most frequent bookings come from the Reading area and surrounding towns.',
+          'Reading to Gatwick – Typical journey 1 hour 15 minutes to 1 hour 30 minutes (traffic dependent).',
+          'Wokingham to Gatwick – Around 1 to 1.5 hours.',
+          'Bracknell to Gatwick – Similar journey time via the M25 and M23.',
+          'Newbury to Gatwick – Comfortable door-to-door service for longer-distance travellers.',
         ],
       },
       {
         heading: 'Where We Pick You Up & Drop You Off',
         paragraphs: [
-          'We provide reliable private transfers between Heathrow Airport and a wide range of locations across Reading and the surrounding areas.',
-          'Wherever you are in these areas, we can take you to Heathrow — or collect you from Heathrow and take you safely to your destination.',
+          'We provide reliable private transfers between Gatwick Airport and locations across Reading and the surrounding areas.',
+          'Whether you are in the town centre, a nearby village, or a surrounding town, we can pick you up from your location and take you directly to the correct Gatwick terminal or collect you from the airport and drive you to your destination in comfort.',
         ],
         areas: [
           { heading: 'Reading & Nearby', places: 'Reading Town Centre, East Reading, South Reading, West Reading, Caversham, Tilehurst, Earley, Woodley, Whitley, Lower Earley, Cemetery Junction, Kings Road, Whiteknights and Green Park.' },
@@ -152,36 +183,59 @@ const serviceContent = {
           { heading: 'Bracknell & Crowthorne', places: 'Bracknell, Binfield, Warfield, Birch Hill, Harmans Water and Crowthorne.' },
           { heading: 'Henley & Surrounding Areas', places: 'Henley-on-Thames, Shiplake, Nettlebed, Remenham, Pangbourne, Goring-on-Thames, Streatley, Whitchurch-on-Thames and Upper Basildon.' },
         ],
-        closing: "Not sure if we cover your exact address? Just send us your pick-up location and destination and we'll be happy to confirm.",
+        closing: 'Not sure if we cover your exact address? Just send us your pickup location and we will confirm the best route for your journey.',
       },
       {
-        heading: 'Clear Pricing, Instant Quotes',
+        heading: 'Typical Journey Times to Gatwick',
         paragraphs: [
-          'Our prices depend on your pick-up location, destination, and time of travel.',
-          "You'll always see the full price before you confirm your booking.",
-          'Get in touch with your pick-up and drop-off details and we will provide a quote.',
+          'Journey times vary depending on traffic and your exact pickup location.',
+          'Reading and nearby areas → Gatwick: approximately 1 hour 15 minutes to 1 hour 40 minutes',
+          'Wokingham and surrounding villages → Gatwick: around 1 hour to 1 hour 30 minutes',
+          'Bracknell and Crowthorne → Gatwick: roughly 1 hour to 1 hour 25 minutes',
+          'Newbury and West Berkshire → Gatwick: usually 1 hour 20 minutes to 1 hour 50 minutes',
+          'Henley and surrounding areas → Gatwick: approximately 1 hour 15 minutes to 1 hour 45 minutes',
         ],
       },
       {
-        heading: "Book Anytime \u2013 We're Available 24/7",
+        heading: 'Our Pricing',
+        paragraphs: [
+          'Our prices depend on your pick-up location, destination, and time of travel.',
+          'We will confirm the price with you before your journey.',
+          'Contact us with your journey details and we will be happy to provide a quote.',
+        ],
+      },
+      {
+        heading: 'Book Anytime – We’re Available 24/7',
         items: [
           'Available 24 hours a day, 7 days a week',
-          'Including weekends, bank holidays, and early morning/late night flights',
+          'Including weekends, bank holidays, and early morning or late-night flights',
           'Easy online booking with instant confirmation',
           'You can also book by phone',
         ],
-        closing: "Book in advance or make a last-minute reservation — we're ready when you are.",
+        closing: 'Book in advance or make a last-minute reservation — we’re ready when you are.',
       },
       {
-        heading: 'Choose the Perfect Vehicle for Your Journey',
+        heading: 'Vehicle Options',
         items: [
-          'Standard Saloon – Comfortable for 1–3 passengers with luggage',
-          'Executive Saloon – Premium cars for business travellers',
-          'Estate Car – Extra boot space for more luggage',
-          'MPV / 6-Seater – Ideal for families or small groups',
-          '8-Seater Minivan – Perfect for larger groups or extra luggage',
+          'Standard Saloon',
+          'Toyota Prius Hybrid',
+          'Mercedes-Benz E-Class',
+          'BMW 5 Series',
+          'Mercedes-Benz Vito / MPV',
+          'BMW 7 Series',
+          'Mercedes-Benz S-Class',
         ],
-        closing: 'All vehicles are modern, clean, air-conditioned, and fully licensed.',
+        closing: 'All vehicles are clean, well-maintained, and driven by licensed professional drivers.',
+      },
+      {
+        heading: 'How to Book with Us',
+        items: [
+          'Enter your pickup location or postcode and drop-off location (include the Gatwick terminal if known).',
+          'Select the date, time, number of passengers and luggage.',
+          'Choose your preferred vehicle from the available options.',
+          'Fill in your name, phone number and email address, then submit your booking request.',
+        ],
+        closing: 'Once we receive your request, we will confirm the details with you. On the day of travel, your driver will arrive at the agreed time for departures or track your flight and meet you in arrivals. You will receive driver details in advance, and support is available 24/7 should anything change.',
       },
       {
         heading: 'Professional Drivers You Can Rely On',
@@ -204,16 +258,16 @@ const serviceContent = {
           'Spacious vehicles for families and groups',
           'Assistance with multiple suitcases and pushchairs',
         ],
-        closing: "Travelling with a lot of bags or young children? Just let us know and we'll arrange the right vehicle.",
+        closing: 'Traveling with a lot of bags or young children? Just let us know and we will arrange the right vehicle.',
       },
     ],
     faqs: [
-      { question: 'Do you provide transfers from Reading to Heathrow Airport?', answer: 'Yes, we offer private transfers from Reading and all surrounding areas straight to Heathrow Airport (LHR). Our drivers pick you up from your door and take you directly to your terminal.' },
-      { question: 'Can you collect me from Heathrow and take me to Reading?', answer: 'Yes. We provide Meet & Greet service at Heathrow. Your driver will wait inside the terminal with a name board and take you to any address in Reading or the surrounding areas.' },
-      { question: 'Which areas do you cover?', answer: "We cover Reading and nearby areas including Caversham, Tilehurst, Earley, Woodley, Wokingham, Newbury, Bracknell, Henley-on-Thames, and many more. If you're not sure, just send us your address and we'll confirm." },
-      { question: 'How does pricing work?', answer: 'Our prices depend on your pick-up location, destination, and time of travel. Contact us with your journey details and we will be happy to provide a quote.' },
-      { question: 'Are you available 24/7?', answer: 'Yes, we operate 24 hours a day, 7 days a week, including weekends, bank holidays, and early morning or late-night flights.' },
-      { question: 'Do you offer child seats and vehicles for groups?', answer: 'Yes. Free child seats and booster seats are available on request. We also have spacious 6-seater and 8-seater vehicles for families and groups with extra luggage.' },
+      { question: 'Do you cover both North and South Terminals at Gatwick?', answer: 'Yes. Simply tell us which terminal your flight uses and we will arrange a pickup or drop-off at the correct one.' },
+      { question: 'What happens if my flight is delayed?', answer: 'We track your flight and adjust the pickup time automatically. Free waiting time is included so you are not charged for reasonable delays.' },
+      { question: 'Are child seats available?', answer: 'Yes — please request them when you book so we can prepare the right seats for your group.' },
+      { question: 'Can I book a return transfer?', answer: 'Absolutely. Many customers book both the outbound and return journeys at the same time for convenience.' },
+      { question: 'Which areas do you cover for Gatwick transfers?', answer: 'We cover Reading, Wokingham, Bracknell, Newbury, Henley-on-Thames and surrounding areas including Caversham, Tilehurst, Earley, Woodley, Winnersh, Charvil, and more.' },
+      { question: 'Do you offer private taxis for families and groups?', answer: 'Yes. We have spacious MPVs and 8-seater vehicles for families, groups and passengers with extra luggage.' },
     ],
   },
   'luton-airport-transfers': {
@@ -235,7 +289,7 @@ const serviceContent = {
     description: 'Travel to and from Stansted Airport with confidence. Our professional drivers ensure timely, comfortable, and reliable transfers.',
     details: [
       'Punctual pickup and drop-off',
-      'Clear and transparent pricing',
+      'Fixed transparent pricing',
       'Comfortable vehicles',
       'Professional drivers',
       'Real-time booking confirmation',
@@ -248,7 +302,7 @@ const serviceContent = {
     description: 'Professional transport for business meetings, corporate events, and executive travel. Our premium vehicles and experienced drivers ensure you arrive on time and in comfort.',
     details: [
       'Dedicated account management',
-      'Transparent corporate rates',
+      'Fixed corporate rates',
       'Premium vehicle options',
       'Professional and discreet drivers',
       'Flexible booking for regular journeys',
@@ -338,15 +392,15 @@ const serviceContent = {
 function DetailedServiceContent({ service }) {
   const navigate = useNavigate()
   const [openArea, setOpenArea] = useState(0)
-  const arrivalSection = service.sections[0]
-  const coverageSection = service.sections[1]
-  const pricingSection = service.sections[2]
-  const bookingSection = service.sections[3]
-  const driversSection = service.sections[5]
-  const familySection = service.sections[6]
+  const arrivalSection = service.sections?.[0] || {}
+  const coverageSection = service.sections?.find((section) => section.heading?.toLowerCase().includes('where we pick')) || service.sections?.[1] || {}
+  const pricingSection = service.sections?.find((section) => section.heading?.toLowerCase().includes('pricing')) || service.sections?.[2] || {}
+  const bookingSection = service.sections?.find((section) => section.heading?.toLowerCase().includes('book anytime') || section.heading?.toLowerCase().includes('how to book')) || service.sections?.[3] || {}
+  const driversSection = service.sections?.find((section) => section.heading?.toLowerCase().includes('professional drivers')) || service.sections?.[5] || {}
+  const familySection = service.sections?.find((section) => section.heading?.toLowerCase().includes('family') || section.heading?.toLowerCase().includes('extra luggage')) || service.sections?.[6] || {}
   const steps = [
     { icon: FaMapMarkerAlt, title: 'Enter your route', text: 'Add your pick-up and drop-off details.' },
-    { icon: FaCheck, title: 'See your quote', text: 'Review the journey details before you confirm.' },
+    { icon: FaCreditCard, title: 'See your quote', text: 'Review the journey details before you confirm.' },
     { icon: FaCheck, title: 'Confirm and relax', text: 'Book online and receive instant confirmation.' },
   ]
   const benefits = [
@@ -354,7 +408,7 @@ function DetailedServiceContent({ service }) {
     { icon: FaPlaneArrival, title: 'Flight tracking', text: 'We monitor delays and stay on schedule.' },
     { icon: FaSuitcase, title: 'Luggage help included', text: 'Assistance with bags and pushchairs.' },
     { icon: FaUserCheck, title: 'Fluent English-speaking', text: 'Smart, polite and experienced service.' },
-    { icon: FaCheck, title: 'Straightforward Booking', text: 'CProvide your pickup and flight details to get started..' },
+    { icon: FaCreditCard, title: 'Transparent booking', text: 'Clear pricing discussed before your journey.' },
     { icon: FaClock, title: 'Available 24/7', text: 'Including weekends and bank holidays.' },
   ]
   return (
@@ -370,7 +424,7 @@ function DetailedServiceContent({ service }) {
             <div className="relative overflow-hidden rounded-[2rem] bg-black shadow-2xl">
               <img src={service.images.arrival} alt="Heathrow airport arrival" className="h-[360px] w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 p-8"><p className="text-xs font-bold uppercase tracking-[0.25em] text-yellow-400">Meet & Greet available</p><p className="mt-2 text-2xl font-bold text-white">We'll be there when you land.</p></div>
+              <div className="absolute bottom-0 left-0 p-8"><p className="text-xs font-bold uppercase tracking-[0.25em] text-yellow-400">Meet & Greet available</p><p className="mt-2 text-2xl font-bold text-white">We’ll be there when you land.</p></div>
             </div>
           </div>
         </div>
@@ -382,15 +436,15 @@ function DetailedServiceContent({ service }) {
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {steps.map((step, index) => { const Icon = step.icon; return <article key={step.title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-7"><div className="flex items-center justify-between"><span className="flex h-10 w-10 items-center justify-center rounded-full bg-yellow-400 text-base font-bold text-black">0{index + 1}</span><Icon className="text-xl text-slate-400" /></div><h3 className="mt-7 text-xl font-bold text-slate-950">{step.title}</h3><p className="mt-3 text-base leading-7 text-slate-600">{step.text}</p></article> })}
           </div>
-          <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-7 sm:p-8"><h3 className="text-xl font-bold text-slate-950 sm:text-2xl">{bookingSection.heading}</h3><ul className="mt-5 grid gap-3 sm:grid-cols-2">{bookingSection.items.map((item) => <li key={item} className="flex gap-3 text-base leading-7 text-slate-700"><FaCheck className="mt-1.5 shrink-0 text-yellow-500" />{item}</li>)}</ul><p className="mt-5 text-base leading-7 text-slate-600">{bookingSection.closing}</p></div>
+          <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-7 sm:p-8"><h3 className="text-xl font-bold text-slate-950 sm:text-2xl">{bookingSection.heading}</h3><ul className="mt-5 grid gap-3 sm:grid-cols-2">{bookingSection.items?.map((item) => <li key={item} className="flex gap-3 text-base leading-7 text-slate-700"><FaCheck className="mt-1.5 shrink-0 text-yellow-500" />{item}</li>)}</ul><p className="mt-5 text-base leading-7 text-slate-600">{bookingSection.closing}</p></div>
         </div>
       </section>
 
       <section className="bg-black py-20 text-white sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
-            <div><p className="text-xs font-bold uppercase tracking-[0.3em] text-yellow-400">Coverage</p><h2 className="mt-4 text-3xl font-semibold leading-[1.12] sm:text-[2.65rem]">{coverageSection.heading}</h2><div className="mt-6 space-y-4 text-lg leading-8 text-white/70">{coverageSection.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></div>
-            <div className="space-y-3">{coverageSection.areas.map((area, index) => { const isOpen = openArea === index; return <div key={area.heading} className="border-b border-white/15 py-5"><button type="button" aria-expanded={isOpen} onClick={() => setOpenArea(isOpen ? -1 : index)} className="flex w-full items-center justify-between gap-6 text-left text-xl font-bold text-white"><span>{area.heading}</span><span className={`text-2xl font-light text-yellow-400 transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>+</span></button><div className={`grid transition-all duration-300 ease-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}><div className="min-h-0 overflow-hidden"><p className="max-w-3xl pt-4 leading-7 text-white/65">{area.places}</p></div></div></div> })}<p className="pt-5 text-white/70">{coverageSection.closing}</p></div>
+            <div><p className="text-xs font-bold uppercase tracking-[0.3em] text-yellow-400">Coverage</p><h2 className="mt-4 text-3xl font-semibold leading-[1.12] sm:text-[2.65rem]">{coverageSection.heading}</h2><div className="mt-6 space-y-4 text-lg leading-8 text-white/70">{coverageSection.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></div>
+            <div className="space-y-3">{coverageSection.areas?.map((area, index) => { const isOpen = openArea === index; return <div key={area.heading} className="border-b border-white/15 py-5"><button type="button" aria-expanded={isOpen} onClick={() => setOpenArea(isOpen ? -1 : index)} className="flex w-full items-center justify-between gap-6 text-left text-xl font-bold text-white"><span>{area.heading}</span><span className={`text-2xl font-light text-yellow-400 transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>+</span></button><div className={`grid transition-all duration-300 ease-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}><div className="min-h-0 overflow-hidden"><p className="max-w-3xl pt-4 leading-7 text-white/65">{area.places}</p></div></div></div> })}<p className="pt-5 text-white/70">{coverageSection.closing}</p></div>
           </div>
         </div>
       </section>
@@ -398,14 +452,15 @@ function DetailedServiceContent({ service }) {
       <Hero_our_fleets />
 
       <section className="bg-[#fafafa] py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="max-w-2xl"><p className="text-xs font-bold uppercase tracking-[0.3em] text-yellow-600">Why riders choose Abbey Cars</p><h2 className="mt-4 text-3xl font-semibold leading-[1.12] text-slate-950 sm:text-[2.65rem]">The details that make your journey easier.</h2></div><div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{benefits.map((benefit) => { const Icon = benefit.icon; return <article key={benefit.title} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"><Icon className="text-2xl text-yellow-500" /><h3 className="mt-5 text-xl font-bold text-slate-950">{benefit.title}</h3><p className="mt-2 leading-7 text-slate-600">{benefit.text}</p></article> })}</div><div className="mt-10 grid gap-4 lg:grid-cols-2"><details className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-xl font-bold text-slate-950"><span>{driversSection.heading}</span><span className="text-2xl font-light text-yellow-600 transition group-open:rotate-45">+</span></summary><ul className="mt-5 space-y-3 text-slate-700">{driversSection.items.map((item) => <li key={item} className="flex gap-3"><FaCheck className="mt-1.5 shrink-0 text-yellow-500" />{item}</li>)}</ul><p className="mt-5 leading-7 text-slate-600">{driversSection.closing}</p></details><details className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-xl font-bold text-slate-950"><span>{familySection.heading}</span><span className="text-2xl font-light text-yellow-600 transition group-open:rotate-45">+</span></summary><ul className="mt-5 space-y-3 text-slate-700">{familySection.items.map((item) => <li key={item} className="flex gap-3"><FaCheck className="mt-1.5 shrink-0 text-yellow-500" />{item}</li>)}</ul><p className="mt-5 leading-7 text-slate-600">{familySection.closing}</p></details></div></div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="max-w-2xl"><p className="text-xs font-bold uppercase tracking-[0.3em] text-yellow-600">Why riders choose Abbey Cars</p><h2 className="mt-4 text-3xl font-semibold leading-[1.12] text-slate-950 sm:text-[2.65rem]">The details that make your journey easier.</h2></div><div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{benefits.map((benefit) => { const Icon = benefit.icon; return <article key={benefit.title} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"><Icon className="text-2xl text-yellow-500" /><h3 className="mt-5 text-xl font-bold text-slate-950">{benefit.title}</h3><p className="mt-2 leading-7 text-slate-600">{benefit.text}</p></article> })}</div><div className="mt-10 grid gap-4 lg:grid-cols-2"><details className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-xl font-bold text-slate-950"><span>{driversSection.heading}</span><span className="text-2xl font-light text-yellow-600 transition group-open:rotate-45">+</span></summary><ul className="mt-5 space-y-3 text-slate-700">{driversSection.items?.map((item) => <li key={item} className="flex gap-3"><FaCheck className="mt-1.5 shrink-0 text-yellow-500" />{item}</li>)}</ul><p className="mt-5 leading-7 text-slate-600">{driversSection.closing}</p></details><details className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-xl font-bold text-slate-950"><span>{familySection.heading}</span><span className="text-2xl font-light text-yellow-600 transition group-open:rotate-45">+</span></summary><ul className="mt-5 space-y-3 text-slate-700">{familySection.items?.map((item) => <li key={item} className="flex gap-3"><FaCheck className="mt-1.5 shrink-0 text-yellow-500" />{item}</li>)}</ul><p className="mt-5 leading-7 text-slate-600">{familySection.closing}</p></details></div></div>
       </section>
 
-      <section className="bg-yellow-400 py-16 sm:py-20"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="grid items-center gap-8 rounded-[2rem] bg-black p-8 text-white shadow-2xl sm:p-12 lg:grid-cols-[1fr_auto] lg:p-14"><div><p className="text-xs font-bold uppercase tracking-[0.3em] text-yellow-400">Reviews coming soon</p><h2 className="mt-4 max-w-2xl text-3xl font-semibold leading-[1.12] sm:text-[2.65rem]">Real journeys. Real feedback.</h2><p className="mt-4 max-w-2xl text-lg leading-8 text-white/70">We'll add our verified Google or Trustpilot reviews here as soon as they are available.</p></div><div className="text-8xl leading-none text-yellow-400" aria-hidden="true">“</div></div></div></section>
+      <Testimonials />
+      <DownloadApp />
 
-      <section className="bg-[#fafafa] py-20 sm:py-28"><div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8"><p className="text-xs font-bold uppercase tracking-[0.3em] text-yellow-600">Need to know</p><h2 className="mt-4 text-3xl font-semibold leading-[1.12] text-slate-950 sm:text-[2.65rem]">Frequently asked questions.</h2><div className="mt-10 divide-y divide-slate-300 border-y border-slate-300">{service.faqs.map((faq) => <details key={faq.question} className="group py-6"><summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-bold text-slate-950"><span>{faq.question}</span><span className="text-2xl font-light text-yellow-600 transition group-open:rotate-45">+</span></summary><p className="max-w-3xl pt-4 leading-7 text-slate-600">{faq.answer}</p></details>)}</div></div></section>
+      <section className="bg-[#fafafa] py-20 sm:py-28"><div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8"><p className="text-xs font-bold uppercase tracking-[0.3em] text-yellow-600">Need to know</p><h2 className="mt-4 text-3xl font-semibold leading-[1.12] text-slate-950 sm:text-[2.65rem]">Frequently asked questions.</h2><div className="mt-10 divide-y divide-slate-300 border-y border-slate-300">{service.faqs?.map((faq) => <details key={faq.question} className="group py-6"><summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-bold text-slate-950"><span>{faq.question}</span><span className="text-2xl font-light text-yellow-600 transition group-open:rotate-45">+</span></summary><p className="max-w-3xl pt-4 leading-7 text-slate-600">{faq.answer}</p></details>)}</div></div></section>
 
-      <section className="bg-black py-16 sm:py-20"><div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:flex-row sm:items-center sm:px-6 lg:px-8"><div><p className="text-xs font-bold uppercase tracking-[0.3em] text-yellow-400">Ready when you are</p><h2 className="mt-3 text-3xl font-semibold leading-[1.12] text-white sm:text-[2.65rem]">Ready to book your Heathrow transfer?</h2><p className="mt-3 text-white/65">We're here to make your journey simple, comfortable, and stress-free.</p></div><button type="button" onClick={() => navigate('/booking')} className="inline-flex shrink-0 items-center gap-3 rounded-full bg-yellow-400 px-7 py-4 font-bold text-black transition hover:bg-yellow-300">Get instant quote <FaArrowRight /></button></div></section>
+      <section className="bg-black py-16 sm:py-20"><div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:flex-row sm:items-center sm:px-6 lg:px-8"><div><p className="text-xs font-bold uppercase tracking-[0.3em] text-yellow-400">Ready when you are</p><h2 className="mt-3 text-3xl font-semibold leading-[1.12] text-white sm:text-[2.65rem]">Ready to book your Gatwick transfer?</h2><p className="mt-3 text-white/65">We’re here to make your journey simple, comfortable, and stress-free.</p></div><button type="button" onClick={() => navigate('/booking')} className="inline-flex shrink-0 items-center gap-3 rounded-full bg-yellow-400 px-7 py-4 font-bold text-black transition hover:bg-yellow-300">Get instant quote <FaArrowRight /></button></div></section>
     </>
   )
 }

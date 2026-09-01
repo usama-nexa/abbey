@@ -57,8 +57,8 @@ function CorporateTravel() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-sm text-slate-600">Fixed Pricing</p>
-                    <p className="font-semibold text-slate-900">No hidden charges</p>
+                    <p className="text-sm text-slate-600">Transparent Pricing</p>
+                    <p className="font-semibold text-slate-900">Discussed before your journey</p>
                   </div>
                 </div>
 
