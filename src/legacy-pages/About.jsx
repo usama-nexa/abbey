@@ -1,9 +1,9 @@
 import usePageTitle from '../hooks/usePageTitle'
 import { NavLink } from 'react-router-dom'
 import { FaArrowRight, FaCarSide, FaClock, FaMapMarkerAlt, FaShieldAlt } from 'react-icons/fa'
-import journeyImage from '../assets/iamges/Home page image/HeroImage1.png'
-import safetyImage from '../assets/iamges/Home page image/Safety is non-negotiable..png'
-import routeImage from '../assets/iamges/Set your route.png'
+import journeyImage from '../assets/iamges/Home page image/Abbey-cars-hero-background.webp'
+import safetyImage from '../assets/iamges/Home page image/Passenger-safety-abbey-cars.webp'
+import routeImage from '../assets/iamges/Set-your-route.webp'
 
 function About() {
   usePageTitle('About')
@@ -47,7 +47,7 @@ function About() {
           </div>
         </div>
         <div className="overflow-hidden rounded-[20px] bg-slate-100">
-          <img src={typeof safetyImage === 'string' ? safetyImage : safetyImage.src} alt="A passenger enjoying a safe Abbey Cars journey" className="h-[320px] w-full object-cover sm:h-[420px]" />
+          <img src={typeof safetyImage === 'string' ? safetyImage : safetyImage.src} alt="Safe and comfortable passenger journey with Abbey Cars" className="h-[320px] w-full object-cover sm:h-[420px]" />
         </div>
       </section>
 

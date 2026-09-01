@@ -8,20 +8,16 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost/Abbey_Cars',
+        target: 'http://localhost',
         changeOrigin: true,
         secure: false,
+        rewrite: (path) => `/Abbey_Cars-${path}`,
       },
       '/uploads': {
-        target: 'http://localhost/Abbey_Cars',
+        target: 'http://localhost',
         changeOrigin: true,
         secure: false,
-      },
-      '/Abbey_Cars/api': {
-        target: 'http://localhost/Abbey_Cars',
-        changeOrigin: true,
-        secure: false,
-        rewrite: (path) => path.replace(/^\/Abbey_Cars/, ''),
+        rewrite: (path) => `/Abbey_Cars-${path}`,
       },
     },
   },

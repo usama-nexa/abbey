@@ -5,9 +5,9 @@ import { MdDirectionsCar, MdLocationOn, MdAirlineSeatIndividual, MdInfo } from '
 import { getAreas, getSiteSettings } from '../lib/cms'
 import { getApiBase, getFleet } from '../lib/api'
 import logoImage from '../assets/iamges/logo-01.png'
-import journeyImage from '../assets/iamges/Home page image/HeroImage1.png'
-import safetyImage from '../assets/iamges/Home page image/Safety is non-negotiable..png'
-import routeImage from '../assets/iamges/Set your route.png'
+import journeyImage from '../assets/iamges/Home page image/Abbey-cars-hero-background.webp'
+import safetyImage from '../assets/iamges/Home page image/Passenger-safety-abbey-cars.webp'
+import routeImage from '../assets/iamges/Set-your-route.webp'
 
 const navItems = []
 const aboutImages = [journeyImage, safetyImage, routeImage, journeyImage]

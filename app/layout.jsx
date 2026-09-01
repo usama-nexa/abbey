@@ -28,8 +28,8 @@ export const metadata = {
 
 export const pageMetadata = {
   '': {
-    title: 'Taxi Service in Reading',
-    description: 'Reliable taxi service in Reading...',
+    title: 'Taxi in Reading : Trusted 24/7 Local Taxi Service : Abbey Cars',
+    description: 'Book a trusted taxi in Reading with Abbey Cars. Safe, reliable 24/7 journeys, airport transfers and local taxi services across Reading.',
   },
 
   services: {

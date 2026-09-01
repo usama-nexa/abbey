@@ -2,8 +2,8 @@ import LegacyAppLoader from '../../src/next/LegacyAppLoader'
 
 const pageMetadata = {
   '': {
-    title: 'Taxi Service in Reading',
-    description: 'Reliable taxi service in Reading, airport transfers and comfortable journeys across Berkshire.',
+    title: 'Taxi in Reading : Trusted 24/7 Local Taxi Service : Abbey Cars',
+    description: 'Book a trusted taxi in Reading with Abbey Cars. Safe, reliable 24/7 journeys, airport transfers and local taxi services across Reading.',
   },
   about: {
     title: 'About Abbey Cars',
@@ -34,6 +34,10 @@ const pageMetadata = {
     title: 'Airport Transfers',
     description: 'Reliable airport transfers from Reading to Heathrow, Gatwick, Luton and Stansted.',
   },
+  'services/heathrow-airport-transfers': {
+  title: 'Heathrow Airport Transfers from Reading, Wokingham and Nearby Areas',
+  description: 'Private Heathrow airport transfers from Reading, Wokingham, Newbury, Bracknell and Henley. Door-to-door service covering all local areas.',
+},
   'corporate-travel': {
     title: 'Corporate Travel',
     description: 'Professional and dependable corporate travel from Abbey Cars in Reading.',

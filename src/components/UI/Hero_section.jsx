@@ -1,4 +1,4 @@
-import heroImage from '../../assets/iamges/Home page image/HeroImage1.png'
+import heroImage from '../../assets/iamges/Home page image/Abbey-cars-hero-background.webp'
 import { NavLink } from 'react-router-dom'
 import { getSiteSettings } from '../../lib/cms'
 
@@ -11,7 +11,7 @@ function Hero_section() {
       <img
   className="absolute inset-0 h-full w-full object-cover"
   src={typeof heroImage === 'string' ? heroImage : heroImage.src}
-  alt="Hero Background"
+  alt="Taxi in Reading : Abbey Cars local taxi service"
   aria-hidden="true"
   style={{
     animation: "slowZoom 7s ease-in-out infinite alternate",

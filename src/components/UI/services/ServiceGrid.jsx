@@ -2,13 +2,13 @@ import { NavLink } from 'react-router-dom'
 import { FaPlaneDeparture, FaCarSide, FaBriefcase, FaMoon, FaCalendarCheck, FaArrowRight } from 'react-icons/fa'
 import local from '../../../assets/iamges/Local-Taxi-Journeys.jpg'
 import business from '../../../assets/iamges/Executive-&-Business-Travel-Executive-&-Business-Travel.jpg'
-import late from '../../../assets/iamges/Late-Night-Early-Morning-Rides.jpg'
+import station from '../../../assets/iamges/Station-Transfers.webp'
 
 const demoImages = {
   airport: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80',
   local,
   business,
-  late,
+  station,
   regular: local,
 }
 
@@ -38,11 +38,11 @@ const services = [
     icon: 'briefcase',
   },
   {
-    id: 'late',
-    title: 'Late-Night & Early-Morning Rides',
-    description: 'Getting home safely matters at every hour. Arrange a ride early, late or whenever you need to travel.',
-    slug: 'late-night-early-morning-rides',
-    image: demoImages.late,
+    id: 'station',
+    title: 'Station Transfers',
+    description: 'Make your journey to or from the station simple and stress-free. Arrange a reliable taxi to Reading, Wokingham or nearby railway stations, with convenient pickup and drop-off at a time that suits you.',
+    slug: 'station-transfers',
+    image: demoImages.station,
     icon: 'late',
   },
  

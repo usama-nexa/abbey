@@ -3,7 +3,7 @@ import { NavLink, useParams } from 'react-router-dom'
 import { getBlogPosts, getPages } from '../lib/cms'
 import usePageTitle from '../hooks/usePageTitle'
 import Testimonials from '../components/UI/services/Testimonials'
-import safetyImage from '../assets/iamges/Home page image/Safety is non-negotiable..png'
+import safetyImage from '../assets/iamges/Home page image/Passenger-safety-abbey-cars.webp'
 
 const pageData = {
   services: [
@@ -255,7 +255,7 @@ function CategoryPage() {
             </div>
           </div>
           <div className="overflow-hidden rounded-[28px] bg-slate-100">
-            <img src={safetyImage.src || safetyImage} alt="Passenger enjoying a comfortable Abbey Cars journey" className="h-full min-h-[360px] w-full object-cover" />
+            <img src={safetyImage.src || safetyImage} alt="Safe and comfortable passenger journey with Abbey Cars" className="h-full min-h-[360px] w-full object-cover" />
           </div>
         </section>
 
